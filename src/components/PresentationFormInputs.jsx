@@ -1,5 +1,9 @@
+import { createSignal } from 'solid-js';
+import TopicsInput from './TopicsInput.jsx';
+
 export default function PresentationFormInputs(props) {
   const { title, setTitle, numSlides, setNumSlides, handleAddSlides, loading } = props;
+  const [topics, setTopics] = createSignal('');
 
   return (
     <form class="space-y-4" onSubmit={(e) => { e.preventDefault(); handleAddSlides(); }}>
@@ -11,6 +15,7 @@ export default function PresentationFormInputs(props) {
         class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-transparent box-border text-gray-800 cursor-pointer"
         required
       />
+      <TopicsInput topics={topics} setTopics={setTopics} />
       <input
         type="number"
         placeholder="Number of Slides"

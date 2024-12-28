@@ -1,7 +1,7 @@
 import { createSignal } from 'solid-js';
 import PresentationFormInputs from './PresentationFormInputs';
 import SlidesInput from './SlidesInput';
-import { handleGenerateImages, handleDownload } from '../utils/presentationActions';
+import { handleGenerateImages, handleDownloadPPTX, handleDownloadWord, handleDownloadPDF } from '../utils/presentationActions';
 
 export default function PresentationForm() {
   const [title, setTitle] = createSignal('');
@@ -27,8 +27,16 @@ export default function PresentationForm() {
     handleGenerateImages(slidesContent(), setSlidesContent, setLoading);
   };
 
-  const handleDownloadAction = () => {
-    handleDownload(title(), slidesContent(), setLoading);
+  const handleDownloadPPTXAction = () => {
+    handleDownloadPPTX(title(), slidesContent(), setLoading);
+  };
+
+  const handleDownloadWordAction = () => {
+    handleDownloadWord(title(), slidesContent(), setLoading);
+  };
+
+  const handleDownloadPDFAction = () => {
+    handleDownloadPDF(title(), slidesContent(), setLoading);
   };
 
   return (
@@ -47,7 +55,9 @@ export default function PresentationForm() {
         handleSlideContentChange={handleSlideContentChange}
         loading={loading}
         handleGenerateImages={handleGenerateImagesAction}
-        handleDownload={handleDownloadAction}
+        handleDownloadPPTX={handleDownloadPPTXAction}
+        handleDownloadWord={handleDownloadWordAction}
+        handleDownloadPDF={handleDownloadPDFAction}
       />
     </div>
   );
