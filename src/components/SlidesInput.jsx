@@ -12,7 +12,7 @@ export default function SlidesInput(props) {
                 rows="3"
                 value={slide.content}
                 onInput={(e) => props.handleSlideContentChange(index(), e.target.value)}
-                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-transparent box-border text-gray-800"
+                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-transparent box-border text-gray-800 cursor-pointer"
                 required
               ></textarea>
             </div>

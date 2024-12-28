@@ -5,6 +5,7 @@ import PresentationForm from './components/PresentationForm';
 import PresentationList from './components/PresentationList';
 import Header from './components/Header';
 import LoginPage from './components/LoginPage';
+import Sentry from '@sentry/browser';
 
 function App() {
   const [user, setUser] = createSignal(null);

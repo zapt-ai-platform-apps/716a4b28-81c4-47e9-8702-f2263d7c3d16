@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     
     const client = postgres(process.env.COCKROACH_DB_URL);
     const db = drizzle(client);
-    
+
     const result = await db.select()
       .from(jokes)
       .where(eq(jokes.userId, user.id))
